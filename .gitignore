@@ -1,0 +1,10 @@
+# data & outputs
+outputs/
+Yelp-JSON/
+*.ipynb_checkpoints/
+.DS_Store
+*.parquet
+*.feather
+*.csv
+*.tsv
+.json
