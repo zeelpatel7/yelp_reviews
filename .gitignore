@@ -8,3 +8,14 @@ Yelp-JSON/
 *.csv
 *.tsv
 .json
+
+# Ignore everything in outputs
+/outputs/*
+
+# But keep everything inside outputs
+!/outputs/**/*.csv
+!/outputs/**/*.png
+!/outputs/**/*.md
+
+# Specifically ignore this one file
+/outputs/business_clean.csv
