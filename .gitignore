@@ -1,21 +1,26 @@
-# data & outputs
-outputs/
-Yelp-JSON/
+# ----------------------
+# General ignores
+# ----------------------
 *.ipynb_checkpoints/
 .DS_Store
 *.parquet
 *.feather
-*.csv
 *.tsv
-.json
+*.json
 
-# Ignore everything in outputs
+# Ignore all CSVs everywhere by default
+*.csv
+
+# ----------------------
+# Outputs folder rules
+# ----------------------
+# Ignore everything inside outputs
 /outputs/*
 
-# But keep everything inside outputs
+# Allow specific file types in outputs
 !/outputs/**/*.csv
 !/outputs/**/*.png
 !/outputs/**/*.md
 
-# Specifically ignore this one file
+# Re-ignore this one file
 /outputs/business_clean.csv
