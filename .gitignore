@@ -1,26 +1,26 @@
-# ----------------------
-# General ignores
-# ----------------------
+# General
 *.ipynb_checkpoints/
 .DS_Store
 *.parquet
 *.feather
 *.tsv
 *.json
+*.csv                         # ignore CSVs everywhere by default
 
-# Ignore all CSVs everywhere by default
-*.csv
+# outputs: ignore everything first
+/outputs/**
 
-# ----------------------
-# Outputs folder rules
-# ----------------------
-# Ignore everything inside outputs
-/outputs/*
+# then allow walking into outputs subfolders
+!/outputs/
+!/outputs/**/
 
-# Allow specific file types in outputs
+# then re-include only these file types in outputs
 !/outputs/**/*.csv
 !/outputs/**/*.png
+!/outputs/**/*.jpg
+!/outputs/**/*.jpeg
+!/outputs/**/*.svg
 !/outputs/**/*.md
 
-# Re-ignore this one file
+# but still ignore this one file
 /outputs/business_clean.csv
