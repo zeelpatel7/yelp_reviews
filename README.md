@@ -70,15 +70,6 @@ I used the [Yelp Open Dataset](https://www.yelp.com/dataset) and focused on **re
 
 ---
 
-## Key Visuals  
-*(Add inline screenshots/plots from your notebook here)*  
-
-- Bar chart of **top drivers of high reviews**.  
-- SHAP summary showing consistency of predictors.  
-- Heatmap/table summarizing category performance.  
-
----
-
 ## Challenges & How They Were Addressed  
 - **Messy attributes:** Parking data inconsistent → standardized via parsing.  
 - **Sparse features:** Many businesses missing hours/delivery info → flagged in insights as a data collection issue.  
