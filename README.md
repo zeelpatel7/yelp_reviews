@@ -1,93 +1,55 @@
-# Yelp Reviews Analysis — Food & Beverage Segment  
+# Yelp Business Success Analysis  
 
-## Overview  
-This project explores what drives **high Yelp ratings (4.5 stars or higher)** for Food & Beverage businesses.  
-The goal: move from messy Yelp data → clear, actionable insights that a restaurant owner or operator could use to improve performance.  
+## Project Overview  
+This project explores the **Yelp Open Dataset** to identify what factors make Food & Beverage businesses highly successful (defined as **≥4.5 stars with 20+ reviews**).  
 
-I used the [Yelp Open Dataset](https://www.yelp.com/dataset) and focused on **restaurants, cafes, bars, and specialty food businesses**.  
-
----
-
-## Objectives  
-1. **Identify drivers** of high ratings in Yelp reviews.  
-2. **Translate findings** into practical recommendations for operators.  
-3. **Highlight data gaps** where Yelp (or a business) should collect more info.  
+We performed data cleaning, exploratory analysis, feature engineering, and built predictive models to identify **key success drivers and risk factors**. Finally, we translated model results into an **operator playbook** that provides actionable recommendations for businesses.  
 
 ---
 
-## Workflow  
+## Repository Structure  
 
-### 1. Data Loading & Cleaning  
-- **What:** Loaded Yelp’s business dataset, filtered to Food & Beverage businesses.  
-- **Why:** Raw data contained multiple categories (auto, shopping, gyms, etc.). We narrowed focus to restaurants and cafes since that’s most actionable for Yelp and Warmer’s scope.  
-- **Steps taken:**  
-  - Parsed business attributes (e.g., parking, delivery, price range).  
-  - Handled missing values (e.g., “Parking” field often inconsistent).  
-  - Standardized categories (merged “Café” and “Coffee & Tea” together).  
+### Key Files  
+- **`analysis.ipynb`**  
+  - The full technical notebook containing **all analysis steps**: parsing raw JSON, cleaning, EDA, feature engineering, modeling, validation, and outputs.  
+  - Use this if you want to **reproduce the entire pipeline**.  
 
-*Outcome:* A cleaned dataset focused on F&B with reliable attributes to analyze.  
+- **`analysis_overview.ipynb`**  
+  - An **index-style notebook** with a step-by-step summarization of the workflow.  
+  - Explains *what* was done and *why*, without the heavy technical details.  
+  - Use this as a **quick entry point** into the project.  
 
----
-
-### 2. Target Definition  
-- **What:** Defined “high rating” as `stars > 4.5`.  
-- **Why:** Business decisions are usually made around excellence — what separates “good” from “great.”  
-
-*Outcome:* Binary target variable (`high_rating`) created for modeling.  
+- **`yelp_data_summarization.pdf`**  
+  - The **presentation deck** summarizing the overarching project, findings, and recommendations.  
 
 ---
 
-### 3. Exploratory Analysis  
-- **What:** Looked at distributions of categories, star ratings, and attribute coverage.  
-- **Why:** Before modeling, we need to know *what data we actually have* and where gaps exist.  
-- **Example:** Parking info was missing for many businesses — a signal of data collection gaps.  
+### Folders  
+- **`Yelp-JSON/`**  
+  - Original raw dataset folder (not fully uploaded to save memory).  
+  - Used as the starting point for analysis.  
 
-*Outcome:* Identified strong candidate features and flagged missing-data issues.  
+- **`outputs/`**  
+  - Contains all processed data outputs generated from `analysis.ipynb`.  
+  - **Note:** The large file `business_clean.csv` is excluded due to size.  
 
----
-
-### 4. Modeling Drivers of High Ratings  
-- **What:** Used a logistic regression model with L1 regularization.  
-- **Why:** This helps identify the *most important predictors* of high ratings, while avoiding overfitting.  
-- **How we validated:** Cross-validation, a tree-based model, and SHAP importance (to double-check consistency).  
-
-*Outcome:* Key drivers of high Yelp ratings included:  
-- Cuisine type (e.g., bakeries, cafes, Japanese cuisine).  
-- Operational features (delivery, good for groups, outdoor seating).  
-- Venue type (bars and specialty shops outperformed generic categories).  
+  Inside `outputs/food_&_beverage/`:  
+  - **Q1 outputs** → results from *“What variables are most strongly correlated with success?”* (performance drivers).  
+  - **Q2 outputs** → results from *operational recommendations*, including the **playbook CSV** and supporting charts.  
 
 ---
 
-### 5. Translating Insights → Recommendations  
-- **What:** Grouped findings into an **operational playbook**.  
-- **Why:** Data science is only useful if it tells operators what to do.  
-- **Examples:**  
-  - Businesses with outdoor seating had higher odds of 5-star reviews → invest in patios where possible.  
-  - Categories like bakeries and specialty food had outsized lift → niche offerings may outperform broad menus.  
-  - Parking info is missing in many cases → Yelp should improve data capture to guide users better.  
-
-*Outcome:* Actionable guidance for operators + ideas for Yelp product improvements.  
+## How to Navigate  
+1. Start with **`analysis_overview.ipynb`** → high-level understanding of the project flow.  
+2. Dive into **`analysis.ipynb`** if you want the **full technical details** and data processing steps.  
+3. Review **`yelp_data_summarization.pdf`** for the **executive summary** and visual storytelling.  
+4. Explore the **`outputs/` folder** for datasets and charts used in Q1 (drivers) and Q2 (recommendations).  
 
 ---
 
-## Challenges & How They Were Addressed  
-- **Messy attributes:** Parking data inconsistent → standardized via parsing.  
-- **Sparse features:** Many businesses missing hours/delivery info → flagged in insights as a data collection issue.  
-- **Model explainability:** Logistic regression chosen over black-box models for interpretability.  
-
----
-
-## Next Steps  
-If I had more time/data, I would:  
-- Build an **interactive dashboard** for operators (filters by cuisine, region).  
-- Explore **time-based patterns** (do openings/closings impact ratings?).  
-- Add **geographic analysis** (are certain neighborhoods over/underperforming?).  
-
----
-
-## Takeaways  
-1. Data confirms: **Operational choices (delivery, outdoor seating) directly affect Yelp ratings.**  
-2. **Niche offerings outperform broad menus** — specialization is rewarded.  
-3. **Data gaps (like parking info)** limit insights — better data capture would benefit both Yelp and businesses.  
-
----
+## Key Deliverables  
+- **Clean dataset pipeline** from messy JSON to structured analysis-ready tables.  
+- **Feature engineering** to standardize categories, fix overlaps, and normalize biases.  
+- **Predictive modeling** (logistic regression + refinements).  
+- **Playbook CSV** → a prioritized list of business levers (success drivers & risks) with recommended actions and A/B test designs.  
+- **Final presentation** highlighting challenges, findings, and actionable recommendations.  
