@@ -3,7 +3,7 @@
 ## Project Overview  
 This project explores the **Yelp Open Dataset** to identify what factors make Food & Beverage businesses highly successful (defined as **≥4.5 stars with 20+ reviews**).  
 
-We performed data cleaning, exploratory analysis, feature engineering, and built predictive models to identify **key success drivers and risk factors**. Finally, we translated model results into an **operator playbook** that provides actionable recommendations for businesses.  
+I performed data cleaning, exploratory analysis, feature engineering, and built predictive models to identify **key success drivers and risk factors**. Finally, I translated model results into an **operator playbook** that provides actionable recommendations for businesses.  
 
 ---
 
